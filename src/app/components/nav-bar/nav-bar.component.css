@@ -1,0 +1,20 @@
+.navbar {
+    background-color: #b4afa2;
+    color: #7e4d23;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.navbar-links,
+a {
+    display: flex;
+    list-style-type: none;
+    font-size: 20px;
+    margin: 20px;
+    margin-top: 20px;
+    color: #7e4d23;
+    text-decoration: none;
+}

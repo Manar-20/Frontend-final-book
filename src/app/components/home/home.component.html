@@ -1,0 +1,22 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="book-list-container">
+    <h1 class="book-list-title">Most Popular Books In 2023</h1>
+  
+        <br/>
+    <div class="book-list-wrapper">
+        <div class="book-list-container">
+            <div class="book-list">
+                <div *ngFor="let book of books" class="book-list-item">
+                    <img class="book-list-item-img" src="{{book.imgUrl}}" alt="{{book.title}}" />
+                    <div class="book-list-item-details">
+                        <span class="book-list-item-title">{{ book.title }}</span>
+                        <p class="book-list-item-desc">{{ book.description }}</p>
+                        <button a routerLink="/book-details/{{book.id}}" class="book-list-item-button">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <app-footer></app-footer>

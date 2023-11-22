@@ -1,0 +1,22 @@
+
+<app-nav-bar></app-nav-bar>
+<br/>
+<br/>
+<br/>
+<div class="signup">
+  <h1>Sign Up</h1>
+
+  <form (ngSubmit)="signup()" [formGroup]="registerForm">
+      <label style="text-align: left;">Name:</label>
+      <input type="text" placeholder="Name..." formControlName="name" />
+      <label style="text-align: left;">Email:</label>
+      <input type="email" placeholder="Email..." formControlName="email" />
+      <label style="text-align: left;">Password:</label>
+      <input type="password" placeholder="Password..." formControlName="password" />
+      <button type="submit" [disabled]="registerForm.invalid">Sign Up</button>
+      <p class="msg">{{Msg}}</p>
+  </form>
+
+  <p style="color: #7e4d23">Already have an account? <a [routerLink]="['/login']">Login</a></p>
+</div>
+  <app-footer></app-footer>

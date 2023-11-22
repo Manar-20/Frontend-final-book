@@ -1,0 +1,25 @@
+
+<app-nav-bar></app-nav-bar>
+
+<br/>
+<br/>
+<br/>
+<div class="login">
+    <h1>Login</h1>
+
+    <form (ngSubmit)="login()" [formGroup]="loginForm">
+        <br/>
+        <label style="text-align: left;">Email:</label>
+        <input type="email" placeholder="Email..." formControlName="email" />
+        <br/>
+        <label style="text-align: left;">Password:</label>
+        <input type="password" placeholder="Password..." formControlName="password" />
+        <br/>
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    </form>
+    <p class="error-msg">{{externalErrorMsg}}</p>
+
+    <p style="color: #7e4d23;">Don't have an account? <a [routerLink]="['/signup']">Create new account</a></p>
+</div>
+  
+<app-footer></app-footer>

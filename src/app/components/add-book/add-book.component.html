@@ -1,0 +1,42 @@
+<div class="navbar">
+    <img a routerLink="/" src="/assets/Logo.png" alt="RRR-logo" width="250" style="margin: 10px;" />
+  
+    <ul class="navbar-links">
+        <li><a routerLink="/home-admin">Home</a></li>
+        <li><a routerLink="/about-admin">About</a></li>
+        <li><a routerLink="/Users">All Users</a></li>
+        <li><a routerLink="/add-book">Add Book</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="addBook">
+    <h1>Add a new Book!</h1>
+  <br/>
+    <form (ngSubmit)="addBook()" [formGroup]="CreateBookForm">
+        <label style="text-align: left;">BookId:</label>
+        <input type="text" placeholder="BookId..." formControlName="idBook" />
+        <label style="text-align: left;">Title:</label>
+        <input type="text" placeholder="title..." formControlName="title" />
+        <label style="text-align: left;">Author:</label>
+        <input type="text" placeholder="author..." formControlName="author" />
+        <label style="text-align: left;">Description:</label>
+        <input type="text" placeholder="description..." formControlName="description" />
+        <!-- <label style="text-align: left;">category:</label>
+        <input type="text" placeholder="category..." formControlName="category" /> -->
+        <label style="text-align: left;">Category:</label>
+        <select class="select" name="category" formControlName="category">
+          <option selected disabled>category...</option>
+          <option value="FICTION">FICTION</option>
+          <option value="NON_FICTION">NON_FICTION</option>
+          <option value="Personal_Development">Personal_Development</option>
+          <option value="HISTORY">HISTORY</option>
+        </select>
+        <label style="text-align: left;">imgUrl:</label>
+        <input type="text" placeholder="imgUrl..." formControlName="imgUrl" />
+        <button type="submit" [disabled]="CreateBookForm.invalid">Add Book</button>
+        <p class="msg">{{Msg}}</p>
+    </form>
+    </div>
+  <app-footer></app-footer>
+

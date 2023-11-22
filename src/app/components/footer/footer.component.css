@@ -1,0 +1,16 @@
+.footer {
+    background-color: rgb(244, 242, 242);
+    color: #7e4d23;
+    width: 97.3%;
+    padding: 20px;
+    text-align: center;
+    bottom: 0;
+}
+
+.footer a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+

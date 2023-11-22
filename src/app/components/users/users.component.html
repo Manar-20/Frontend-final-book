@@ -1,0 +1,26 @@
+<div class="navbar">
+    <img a routerLink="/" src="/assets/Logo.png" alt="RRR-logo" width="250" style="margin: 10px;" />
+  
+    <ul class="navbar-links">
+        <li><a routerLink="/home-admin">Home</a></li>
+        <li><a routerLink="/about-admin">About</a></li>
+        <li><a routerLink="/Users">All Users</a></li>
+        <li><a routerLink="/addbook">Add book</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+
+
+<div class="book-list-container">
+    <div *ngFor="let user of users" class="user-box" [ngStyle]="{'background-color': user.role.name == 'ROLE_ADMIN' ? 'lightgray' : 'white'}">
+        <h3>Name: {{ user.name }} </h3>
+        <br/>
+        <p>Email: {{ user.email }}</p>
+        <br/>
+        <p>Password: {{ user.password }}</p>
+        <br/>
+        <p>Role: {{ user.role.name }}</p>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,88 @@
+<div class="navbar">
+    <img a routerLink="/home-admin" src="/assets/Logo.png" alt="RRR-logo" width="250" style="margin: 10px; cursor: pointer;" />
+  
+    <ul class="navbar-links">
+        <li><a routerLink="/home-admin">Home</a></li>
+        <li><a routerLink="/about-admin">About</a></li>
+        <li><a routerLink="/Users">All Users</a></li>
+        <li><a routerLink="/addBook">Add Book</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+  
+  <div class="book-page-container">
+  <div class="poster-container">
+      <img [src]="book?.imgUrl" alt="book Image">
+  </div>
+  <div class="details-and-reviews">
+      <div class="book-details">
+          <h2>Book: {{ book?.idBook }}</h2>
+          <form [formGroup]="editForm">
+              <br/>
+             
+              <p>Author:
+                  <input *ngIf="!editMode" type="text" [value]="book?.author" disabled />
+                  <input *ngIf="editMode" type="text" formControlName="author" />
+              </p>
+              <br/>
+            
+              <p>Title:
+                  <input *ngIf="!editMode" type="text" [value]="book?.title" disabled />
+                  <input *ngIf="editMode" type="text" formControlName="title" />
+              </p>
+              <br/>
+              
+              <p>Description:
+                  <input *ngIf="!editMode" type="text" [value]="book?.description" disabled />
+                  <input *ngIf="editMode" type="text" formControlName="story" />
+              </p>
+              <br/>
+              <!-- Category Input -->
+              <p>Category:
+                  <input *ngIf="!editMode" type="text" [value]="book?.category" disabled />
+                  <input *ngIf="editMode" type="text" formControlName="category" />
+              </p>
+              <br/>
+              <!-- Edit Button -->
+              <button *ngIf="!editMode" (click)="enterEditMode()">Edit Book</button>
+              <!-- Save Button -->
+              <button *ngIf="editMode" (click)="saveChanges()">Save Changes</button>
+          </form>
+      <!-- </div>
+      <div class="reviews">
+        <h3>User Reviews</h3>
+        <ul>
+          <ng-container *ngFor="let review of reviews; let i = index">
+            <li>
+              <div class="user-info">
+                <strong>{{ review.user.name }}</strong>
+                <span>Rated: {{ ratings[i]?.rating }}/5</span>
+              </div>
+              <p>{{ review.comment }}</p>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+      <div> -->
+        <button (click)="deleteBook()">Delete Book</button>
+    </div>
+      <div class="add-review-form">
+        <h3>Add Your Review</h3>
+        <form>
+          <label for="userName">Name:</label>
+          <input type="text" id="userName" name="userName" required>
+  
+          <label for="userRating">Rating (1-10):</label>
+          <input type="number" id="userRating" name="userRating" min="1" max="10" required>
+  
+          <label for="userReview">Review:</label>
+          <textarea id="userReview" name="userReview" required></textarea>
+  
+          <button type="submit">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
+  <app-footer></app-footer>
