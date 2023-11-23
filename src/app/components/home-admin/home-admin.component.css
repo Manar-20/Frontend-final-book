@@ -50,7 +50,7 @@
   
   .book-list-item-title {
     border-radius: 10px;
-    background-color: #bcb193(249, 249, 249, 0.879);    
+    background-color: #bcb193;    
     padding: 0 10px;
     font-size: 30px;
     font-weight: bold;
@@ -59,12 +59,13 @@
     left: 50px;
     opacity: 0;
     transition: 1s all ease-in-out;
+    color: #7e4d23;;
   }
   
   .book-list-item-desc {
     border-radius: 10px;
-    background-color: bcb193(249, 249, 249, 0.879);    
-    padding: 10px;
+    background-color:  #bcb193;    
+    padding: 20px;
     font-size: 12px;
     position: absolute;
     top: 30%;
@@ -73,8 +74,8 @@
     opacity: 0;
     transition: 1s all ease-in-out;
     word-wrap: break-word;
+    color:   #7e4d23; ;
   }
-
   
 .book-list-item:hover .book-list-item-details {
     opacity: 1;

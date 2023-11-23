@@ -12,13 +12,6 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 export class BookDetailComponent implements OnInit {
   idBook!: number;
   book!: any;
-  reviews: any[] = [];
-  ratings: any[] = [];
-  commentInput: FormControl;
-  ratingForm: FormGroup;
-  selectedRating: number | null = null;
-  reviewForm: FormGroup;
-  userName!: string;
   editMode: boolean = false;
   editForm!: FormGroup;
   name: any
@@ -28,20 +21,12 @@ export class BookDetailComponent implements OnInit {
     private authService: AuthService,
     private router: Router, 
     private fb: FormBuilder
-    ) {
-      this.ratingForm = this.fb.group({
-        rating: [null]
-      });this.commentInput = new FormControl('', [Validators.required]);
-      this.reviewForm = new FormGroup({
-        comment: this.commentInput
-      });
-      
+    ) {  
     
-      this.userName = JSON.parse(localStorage.getItem("currentUser") as string).name;
       this.editForm = this.fb.group({
-        releaseYear: ["", Validators.required],
-        language: ["", Validators.required],
-        story: ["", Validators.required],
+        author: ["", Validators.required],
+        title: ["", Validators.required],
+        description: ["", Validators.required],
         category: ["", Validators.required],
     });
     this.name = JSON.parse(localStorage.getItem("currentUser") as string).name;
@@ -53,50 +38,36 @@ export class BookDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.idBook = +params['id'];
       this.getBookDetails();
-      this.getReviews();
-      this.getRatings();
     });
   }
   getBookDetails() {
     this.adminAPIService.getBooksById(this.idBook).subscribe(
       (data) => {
         this.book = data;
+        this.editForm.setValue({
+          author: this.book.author,
+          title: this.book.title,
+          description: this.book.description,
+          category: this.book.category,
+        })
       },
       error => {
         console.error('Error fetching Book details:', error);
       }
     );
   }
-  getReviews(){
-    this.adminAPIService.getReviews(this.idBook).subscribe(
-      (data) => {
-        this.reviews = data;
-      },
-      error => {
-        console.error('Error fetching review details:', error);
-      }
-    )
-  }
   
-  getRatings(){
-    this.adminAPIService.getRatings(this.idBook).subscribe(
-      (data) => {
-        this.ratings = data;
-      },
-      error => {
-        console.error('Error fetching rating details:', error);
-      }
-    )
-  }
   enterEditMode(): void {
     this.editMode = true;
     this.editForm.enable();
   }
 
   saveChanges(): void {
-    this.adminAPIService.updateBook(this.book).subscribe(
+
+    const updatedBook ={ ...this.book, ...this.editForm.value}
+    this.adminAPIService.updateBook(this.idBook,updatedBook).subscribe(
       (response: string) => {
-        if (response.includes('Book updated Successfully')) {
+        if (response.includes('Book updated successfully')) {
           this.editMode = false;
           this.editForm.disable();
           this.getBookDetails(); // Fetch updated details after successful update

@@ -13,6 +13,7 @@ import { AboutAdminComponent } from './components/about-admin/about-admin.compon
 import { AboutUserComponent } from './components/about-user/about-user.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
+import { BookDitaleUserComponent } from './components/book-ditale-user/book-ditale-user.component';
 
 const routes: Routes = [
   {
@@ -56,8 +57,14 @@ const routes: Routes = [
 
   {
     path: 'book-details/:id',
-    canActivate: [AuthGuardService],
+    
     component: BookDetailComponent,
+  },
+
+  {
+    path: 'book-details-user/:id',
+    
+    component: BookDitaleUserComponent,
   },
   {
     path: 'signup',

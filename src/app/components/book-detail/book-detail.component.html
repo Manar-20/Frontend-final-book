@@ -48,39 +48,8 @@
               <!-- Save Button -->
               <button *ngIf="editMode" (click)="saveChanges()">Save Changes</button>
           </form>
-      <!-- </div>
-      <div class="reviews">
-        <h3>User Reviews</h3>
-        <ul>
-          <ng-container *ngFor="let review of reviews; let i = index">
-            <li>
-              <div class="user-info">
-                <strong>{{ review.user.name }}</strong>
-                <span>Rated: {{ ratings[i]?.rating }}/5</span>
-              </div>
-              <p>{{ review.comment }}</p>
-            </li>
-          </ng-container>
-        </ul>
-      </div>
-      <div> -->
         <button (click)="deleteBook()">Delete Book</button>
     </div>
-      <div class="add-review-form">
-        <h3>Add Your Review</h3>
-        <form>
-          <label for="userName">Name:</label>
-          <input type="text" id="userName" name="userName" required>
-  
-          <label for="userRating">Rating (1-10):</label>
-          <input type="number" id="userRating" name="userRating" min="1" max="10" required>
-  
-          <label for="userReview">Review:</label>
-          <textarea id="userReview" name="userReview" required></textarea>
-  
-          <button type="submit">Submit Review</button>
-        </form>
-      </div>
     </div>
   </div>
   

@@ -1,0 +1,28 @@
+<div class="navbar">
+    <img a routerLink="/home-user" src="/assets/Logo.png" alt="RRR-logo" width="250" style="margin: 10px; cursor: pointer;" />
+  
+    <ul class="navbar-links">
+        <li><a routerLink="/home-user">Home</a></li>
+        <li><a routerLink="/about-user">About</a></li>
+        <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+  
+  <div class="book-page-container">
+  <div class="poster-container">
+      <img [src]="book?.imgUrl" alt="book Image">
+  </div>
+  <div class="details-and-reviews">
+      <div class="book-details">
+          <h2>Book: {{ book?.idBook }}</h2>
+         <p>Title : {{book.title}}</p>
+         <p>Author: {{book.author}}</p>
+         <p>Description: {{book.description}}</p>
+         <p>Category: {{book.category}}</p>
+         
+    </div>
+    </div>
+  </div>
+  
+  
+  <app-footer></app-footer>

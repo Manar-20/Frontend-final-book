@@ -12,7 +12,7 @@ export class AdminAPIService {
   readonly API_URL = 'http://localhost:8081';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
   ) { }
 
  
@@ -30,10 +30,8 @@ export class AdminAPIService {
 
 
   getBooksById(idBook: number): Observable<Book> {
-    const options = {
-      headers: this.getAuthHeader()
-    };
-    return this.http.get<Book>(`${this.API_URL}/byBookId/${idBook}`, options);
+   
+    return this.http.get<Book>(`${this.API_URL}/byBookId/${idBook}`);
   }
   createNewBook(book : any): Observable<Book> {
     const options = {
@@ -42,11 +40,13 @@ export class AdminAPIService {
     return this.http.post<any>(`${this.API_URL}/add-new-book`, book, options);
   }
   
-  updateBook(book: Book): Observable<string> {
+  updateBook(id: number | null , book: any): Observable<string> {
     const options = {
-      headers: this.getAuthHeader()
+      headers: this.getAuthHeader(),
+      responseType: 'text' as 'json'
+
     };
-    return this.http.put<string>(`${this.API_URL}/update/${book._idBook}$`, book, options);
+    return this.http.put<string>(`${this.API_URL}/update/${id}`, book, options);
   }
 
   deleteBook(idBook: number | null): Observable<string> {
