@@ -70,6 +70,22 @@ Happy exploring, reviewing, and discussing books with RRR Community!
 # Home-Page
 ![image](https://github.com/Manar-20/Frontend-final-book/assets/111026905/df2c6e32-b76f-4888-8d2e-e675eb799099)
 
+# User-home
+![image](https://github.com/Manar-20/Frontend-final-book/assets/111026905/89431396-f29d-4d26-a267-d5a12e11b153)
+
+# Admin-Home
+![image](https://github.com/Manar-20/Frontend-final-book/assets/111026905/eca35b54-76d8-4308-8b59-84c2542ddd88)
+
+# Add-Book
+![image](https://github.com/Manar-20/Frontend-final-book/assets/111026905/f1c3ce63-191e-422d-a268-82ea77cd2124)
+
+# Get All-user by Admin
+
+![image](https://github.com/Manar-20/Frontend-final-book/assets/111026905/b9df1d6d-755f-4528-87ad-cf2781450fe2)
+
+And you can explor the athor Pags
+
+
 
 
 
